@@ -5,7 +5,7 @@
 
 class UDPServer {
 private:
-    ServerNotifier* notifier;
+    ServerNotifier* notifier = nullptr;
 public:
     UDPServer();
     ~UDPServer();
