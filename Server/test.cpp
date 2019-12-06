@@ -1,9 +1,10 @@
 #include "Debugger.h"
+#include "UDPServer.h"
 
 int main() {
-    Debugger notifier = Debugger(new UDPServer());
-    notifier.notifyMessageReceive();
-    notifier.notifyMessageSend();
-    notifier.notifySocketCreated();
+    UDPServer* server = new UDPServer();
+    server->setNotifier(new Debugger());
+    server->testServerNotifier();
+    delete server;
     return 0;
 }

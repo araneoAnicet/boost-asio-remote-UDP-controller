@@ -1,11 +1,7 @@
 #include "Debugger.h"
 
-Debugger::Debugger(UDPServer* udp_server) {
-    this->setUDPServer(udp_server);
-}
-
-void Debugger::setUDPServer(UDPServer* udp_server) {
-    this->udp_server = udp_server;
+Debugger::Debugger() {
+    std::cout << "Created Debugger" << std::endl;
 }
 
 void Debugger::notifyMessageSend() {
