@@ -15,7 +15,13 @@ void UDPServer::setNotifier(ServerNotifier* notifier) {
 }
 
 void UDPServer::testServerNotifier() {
+    // remove in the future
+    this->notifier->logTime();
     this->notifier->notifyMessageReceive();
+
+    this->notifier->logTime();
     this->notifier->notifyMessageSend();
+
+    this->notifier->logTime();
     this->notifier->notifySocketCreated();
 }

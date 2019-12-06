@@ -9,6 +9,6 @@ private:
 public:
     UDPServer();
     ~UDPServer();
-    void testServerNotifier();
+    void testServerNotifier();  // remove in the future
     void setNotifier(ServerNotifier* notifier);
 };

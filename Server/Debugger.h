@@ -11,6 +11,5 @@ public:
     void notifyMessageSend() override;
     void notifyMessageReceive() override;
     void notifySocketCreated() override;
-    void logTime();
-    void logNotificationTime(void (*func)(void));
+    void logTime() override;
 };

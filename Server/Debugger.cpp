@@ -21,7 +21,3 @@ void Debugger::logTime() {
     std::cout << std::ctime << "\t";
 }
 
-void Debugger::logNotificationTime(void (*func)(void)) {
-    this->logTime();
-    func();
-}
