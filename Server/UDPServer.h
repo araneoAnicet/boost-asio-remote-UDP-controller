@@ -1,7 +1,8 @@
 #pragma once
-#include "ServerNotifier.h"
+#include <iostream>
 
 
 class UDPServer {
-
+public:
+    UDPServer();
 };

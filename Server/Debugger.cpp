@@ -1,25 +1,22 @@
 #include "Debugger.h"
 
-Debugger::Debugger(UDPServer udp_server) {
+Debugger::Debugger(UDPServer* udp_server) {
     this->setUDPServer(udp_server);
 }
 
-void Debugger::setUDPServer(UDPServer udp_server) {
-    this->setUDPServer = udp_server;
+void Debugger::setUDPServer(UDPServer* udp_server) {
+    this->udp_server = udp_server;
 }
 
 void Debugger::notifyMessageSend() {
-    this->logTime();
     std::cout << "Sent a message" << std::endl;
 }
 
 void Debugger::notifyMessageReceive() {
-    this->logTime();
     std::cout << "Received a new message" << std::endl;
 }
 
 void Debugger::notifySocketCreated() {
-    this->logTime();
     std::cout << "Socket created" << std::endl;
 }
 

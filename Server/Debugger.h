@@ -7,8 +7,8 @@
 
 class Debugger: public ServerNotifier {
 public:
-    Debugger(UDPServer udp_server);
-    void setUDPServer(UDPServer udp_server) override;
+    Debugger(UDPServer* udp_server);
+    void setUDPServer(UDPServer* udp_server) override;
     void notifyMessageSend() override;
     void notifyMessageReceive() override;
     void notifySocketCreated() override;
