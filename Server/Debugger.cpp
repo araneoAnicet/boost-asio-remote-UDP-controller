@@ -18,6 +18,6 @@ void Debugger::notifySocketCreated() {
 
 void Debugger::logTime() {
     std::time_t currentTime = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-    std::cout << std::ctime << "\t";
+    std::cout << std::endl << std::ctime(&currentTime) << "\t";
 }
 
