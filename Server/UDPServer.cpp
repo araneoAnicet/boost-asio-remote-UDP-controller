@@ -1,8 +1,10 @@
 #include "UDPServer.h"
 
 
-UDPServer::UDPServer() {
-    std::cout << "Created UDP server" << std::endl;
+UDPServer::UDPServer(UDPServerBuilder* builder) {
+    this->notifier = builder->getNotifier();
+    this->activeIP = builder->getActiveIP();
+    this->port = builder->getPort();
 }
 
 UDPServer::~UDPServer() {

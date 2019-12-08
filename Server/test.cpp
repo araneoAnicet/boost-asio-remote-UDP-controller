@@ -1,10 +1,6 @@
-#include "Debugger.h"
-#include "UDPServer.h"
+#include "UDPServerBuilder.h"
 
 int main() {
-    UDPServer* server = new UDPServer();
-    server->setNotifier(new Debugger());
-    server->testServerNotifier();
-    delete server;
+    UDPServerBuilder* serverBuilder = new UDPServerBuilder(9090);
     return 0;
 }
