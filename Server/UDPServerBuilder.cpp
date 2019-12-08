@@ -33,6 +33,11 @@ UDPServerBuilder* UDPServerBuilder::setNotifier(ServerNotifier* notifier) {
     return this;
 }
 
+UDPServerBuilder* UDPServerBuilder::setExecuter(Executer* executer) {
+    this->executer = executer;
+    return this;
+}
+
 ServerNotifier* UDPServerBuilder::getNotifier() {
     return this->notifier;
 }
@@ -43,6 +48,10 @@ boost::asio::ip::address_v4 UDPServerBuilder::getActiveIP() {
 
 int UDPServerBuilder::getPort() {
     return this->port;
+}
+
+Executer* UDPServerBuilder::getExecuter() {
+    return this->executer;
 }
 
 UDPServer* UDPServerBuilder::build() {

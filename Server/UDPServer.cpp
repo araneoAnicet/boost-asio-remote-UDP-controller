@@ -16,6 +16,10 @@ void UDPServer::setNotifier(ServerNotifier* notifier) {
     this->notifier = notifier;
 }
 
+void UDPServer::setExecuter(Executer* executer) {
+    this->executer = executer;
+}
+
 void UDPServer::testServerNotifier() {
     // remove in the future
 
