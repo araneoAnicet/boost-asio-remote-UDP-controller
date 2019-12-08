@@ -1,20 +1,21 @@
 #pragma once
 #include "UDPServer.h"
+#include "ServerNotifier.h"
 #include <iostream>
-#include "boost/asio.hpp"
+#include <boost/asio/ip/address_v4.hpp>
 #include <ifaddrs.h>
 #include <arpa/inet.h>
 #include <sys/socket.h>
 #include <string.h>
 
+class UDPServer;
 
 
 class UDPServerBuilder {
 private:
     int port;
     boost::asio::ip::address_v4 activeIP;
-    ServerNotifier* notifier = nullptr;
-
+    ServerNotifier* notifier;
 
 public:
     UDPServerBuilder();

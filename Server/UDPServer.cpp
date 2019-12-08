@@ -9,9 +9,7 @@ UDPServer::UDPServer(UDPServerBuilder* builder) {
 
 UDPServer::~UDPServer() {
     std::cout << "Deleting server notifier" << std::endl;
-    if (this->notifier != nullptr) {
-        delete this->notifier;
-    }
+    delete this->notifier;
 }
 
 void UDPServer::setNotifier(ServerNotifier* notifier) {
@@ -21,14 +19,12 @@ void UDPServer::setNotifier(ServerNotifier* notifier) {
 void UDPServer::testServerNotifier() {
     // remove in the future
 
-    if (this->notifier != nullptr) {
-        this->notifier->logTime();
-        this->notifier->notifyMessageReceive();
+    this->notifier->logTime();
+    this->notifier->notifyMessageReceive();
 
-        this->notifier->logTime();
-        this->notifier->notifyMessageSend();
+    this->notifier->logTime();
+    this->notifier->notifyMessageSend();
 
-        this->notifier->logTime();
-        this->notifier->notifySocketCreated();
-    }
+    this->notifier->logTime();
+    this->notifier->notifySocketCreated();
 }

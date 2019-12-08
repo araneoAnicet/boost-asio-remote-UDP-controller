@@ -2,11 +2,13 @@
 #include <iostream>
 #include "ServerNotifier.h"
 #include "UDPServerBuilder.h"
+#include <boost/asio/ip/address_v4.hpp>
 
+class UDPServerBuilder;
 
 class UDPServer {
 private:
-    ServerNotifier* notifier = nullptr;
+    ServerNotifier* notifier;
     boost::asio::ip::address_v4 activeIP;
     int port;
 public:
