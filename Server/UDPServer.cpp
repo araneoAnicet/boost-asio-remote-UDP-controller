@@ -11,6 +11,9 @@ UDPServer::UDPServer(UDPServerBuilder* builder) {
 UDPServer::~UDPServer() {
     std::cout << "Deleting server notifier" << std::endl;
     delete this->notifier;
+
+    std::cout << "Deleting server executer" << std::endl;
+    delete this->executer;
 }
 
 void UDPServer::setNotifier(ServerNotifier* notifier) {
