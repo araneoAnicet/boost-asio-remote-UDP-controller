@@ -5,6 +5,7 @@ UDPServer::UDPServer(UDPServerBuilder* builder) {
     this->notifier = builder->getNotifier();
     this->activeIP = builder->getActiveIP();
     this->port = builder->getPort();
+    this->executer = builder->getExecuter();
 }
 
 UDPServer::~UDPServer() {
