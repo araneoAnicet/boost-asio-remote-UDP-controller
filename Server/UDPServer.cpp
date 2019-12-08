@@ -32,3 +32,9 @@ void UDPServer::testServerNotifier() {
     this->notifier->logTime();
     this->notifier->notifySocketCreated();
 }
+
+void UDPServer::testExecuter(std::string message) {
+    // remove in the future
+
+    this->executer->execute(message);
+}
