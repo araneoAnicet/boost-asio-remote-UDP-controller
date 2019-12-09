@@ -31,7 +31,7 @@ void UDPServer::run() {
         io_service,
         boost::asio::ip::udp::endpoint(this->activeIP, this->port)
         );
-
+    this->notifier->notifySocketCreated();
     while (true) {
         boost::array<char, BUFFER_SIZE> bufferArray;
         boost::asio::ip::udp::endpoint remoteEndpoint;
@@ -39,7 +39,8 @@ void UDPServer::run() {
 
         size_t bytesReceived;
         socket.receive_from(boost::asio::buffer(bufferArray), remoteEndpoint, 0, error);
-        this->executer->execute(boost::asio::buffer_cast<const char*>(boost::asio::buffer(bufferArray))); 
+        this->notifier->notifyMessageReceive();
+        this->executer->execute(boost::asio::buffer_cast<const char*>(boost::asio::buffer(bufferArray, bufferArray.size()))); 
     }
 
 }
