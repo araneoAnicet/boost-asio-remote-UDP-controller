@@ -33,14 +33,15 @@ void UDPServer::run() {
         );
     this->notifier->notifySocketCreated();
     while (true) {
-        boost::array<char, BUFFER_SIZE> bufferArray;
+        boost::array<char, BUFFER_SIZE>* bufferArray = new boost::array<char, BUFFER_SIZE>();
         boost::asio::ip::udp::endpoint remoteEndpoint;
         boost::system::error_code error;
 
         size_t bytesReceived;
-        socket.receive_from(boost::asio::buffer(bufferArray), remoteEndpoint, 0, error);
+        socket.receive_from(boost::asio::buffer(*bufferArray), remoteEndpoint, 0, error);
         this->notifier->notifyMessageReceive();
-        this->executer->execute(boost::asio::buffer_cast<const char*>(boost::asio::buffer(bufferArray, bufferArray.size()))); 
+        this->executer->execute(boost::asio::buffer_cast<const char*>(boost::asio::buffer(*bufferArray, bufferArray->size()))); 
+        delete bufferArray;
     }
 
 }
