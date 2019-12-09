@@ -9,8 +9,7 @@ int main() {
         ->setPort(9090)
         ->setExecuter(new MessagePrinter())
         ->build();
-    server->testServerNotifier();
-    server->testExecuter("Executer test message...");
+    server->run();
     delete server;
     return 0;
 }

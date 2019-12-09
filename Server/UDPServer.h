@@ -2,8 +2,12 @@
 #include <iostream>
 #include "ServerNotifier.h"
 #include "UDPServerBuilder.h"
+#include <boost/asio.hpp>
+#include <boost/array.hpp>
 #include <boost/asio/ip/address_v4.hpp>
 #include "Executer.h"
+
+#define BUFFER_SIZE 1024
 
 
 class UDPServerBuilder;
@@ -17,6 +21,7 @@ private:
 public:
     UDPServer(UDPServerBuilder* builder);
     ~UDPServer();
+    void run();
     void testServerNotifier();  // remove in the future
     void testExecuter(std::string message);  // remove in the future
     void setNotifier(ServerNotifier* notifier);

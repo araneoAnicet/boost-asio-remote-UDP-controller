@@ -42,3 +42,23 @@ void UDPServer::testExecuter(std::string message) {
 
     this->executer->execute(message);
 }
+
+void UDPServer::run() {
+    boost::asio::io_service io_service;
+    
+    boost::asio::ip::udp::socket socket(
+        io_service,
+        boost::asio::ip::udp::endpoint(this->activeIP, this->port)
+        );
+
+    while (true) {
+        boost::array<char, BUFFER_SIZE> bufferArray;
+        boost::asio::ip::udp::endpoint remoteEndpoint;
+        boost::system::error_code error;
+
+        size_t bytesReceived;
+        socket.receive_from(boost::asio::buffer(bufferArray), remoteEndpoint, 0, error);
+        this->executer->execute(boost::asio::buffer_cast<const char*>(boost::asio::buffer(bufferArray))); 
+    }
+
+}
