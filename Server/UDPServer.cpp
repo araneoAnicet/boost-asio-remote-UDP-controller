@@ -24,25 +24,6 @@ void UDPServer::setExecuter(Executer* executer) {
     this->executer = executer;
 }
 
-void UDPServer::testServerNotifier() {
-    // remove in the future
-
-    this->notifier->logTime();
-    this->notifier->notifyMessageReceive();
-
-    this->notifier->logTime();
-    this->notifier->notifyMessageSend();
-
-    this->notifier->logTime();
-    this->notifier->notifySocketCreated();
-}
-
-void UDPServer::testExecuter(std::string message) {
-    // remove in the future
-
-    this->executer->execute(message);
-}
-
 void UDPServer::run() {
     boost::asio::io_service io_service;
     

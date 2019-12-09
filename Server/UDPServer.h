@@ -22,8 +22,6 @@ public:
     UDPServer(UDPServerBuilder* builder);
     ~UDPServer();
     void run();
-    void testServerNotifier();  // remove in the future
-    void testExecuter(std::string message);  // remove in the future
     void setNotifier(ServerNotifier* notifier);
     void setExecuter(Executer* executer);
 };
