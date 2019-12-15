@@ -14,5 +14,7 @@ public:
     void setHost();
     void setHost(boost::asio::ip::address_v4 host);
     void setPort(int port);
+    boost::asio::ip::address_v4 getAddress();
+    int getPort();
     UDPClient* build();
 };

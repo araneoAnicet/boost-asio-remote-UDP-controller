@@ -16,6 +16,14 @@ void UDPClientBuilder::setPort(int port) {
     this->port = port;
 }
 
+boost::asio::ip::address_v4 UDPClientBuilder::getAddress() {
+    return this->hostAddr;
+}
+
+int UDPClientBuilder::getPort() {
+    return this->port;
+}
+
 UDPClient* UDPClientBuilder::build() {
     return new UDPClient(this);
 }
