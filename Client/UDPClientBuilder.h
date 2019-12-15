@@ -1,5 +1,6 @@
 #pragma once
 #include "UDPClient.h"
+#include <iostream>
 #include <boost/asio/ip/address_v4.hpp>
 
 class UDPClient;
@@ -10,7 +11,6 @@ private:
     int port;
 
 public:
-    UDPClientBuilder();
     void setHost();
     void setHost(boost::asio::ip::address_v4 host);
     void setPort(int port);
